@@ -26,7 +26,7 @@ public class Reader {
                 }
             }else {
                     text.add(word);
-                }
+            }
         }
 
         return text;
