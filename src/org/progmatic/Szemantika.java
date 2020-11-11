@@ -35,29 +35,46 @@ public class Szemantika {
         return wordsNum;
     }
 
-    public ArrayList<String > top10(HashMap<String, Integer> wordsNum) {
+    public String[] maxOfArray(HashMap<String, Integer> wordsNum) {
+        String[] maxArr = new String[2];
         int max = 0;
-        String maxkey = null;
-        ArrayList<String> tops = new ArrayList<>();
+        String maxKey = null;
         for (Map.Entry<String, Integer> entry : wordsNum.entrySet()) {
             if (entry.getValue() > max) {
                 max = entry.getValue();
-                maxkey = entry.getKey();
+                maxKey = entry.getKey();
             }
         }
-        tops.add(maxkey);
-        for (int j = max-1; j > 0 ; j--) {
-            for (Map.Entry<String, Integer> entry : wordsNum.entrySet()) {
-                if(entry.getValue() == j) {
-                    tops.add(entry.getKey());
-                }
+        maxArr[0] = maxKey;
+        maxArr[1] = Integer.toString(max);
+        return maxArr;
+
+    }
+
+    public String[] maxOfArrayGreaterThan(HashMap<String, Integer> wordsNum, int max) {
+        String[] greaterMaxArr = new String[2];
+        String greaterMaxKey = null;
+        int greaterMax = 0;
+        for (Map.Entry<String, Integer> entry : wordsNum.entrySet()) {
+            if (entry.getValue() > greaterMax && entry.getValue() < max) {
+                greaterMax = entry.getValue();
+                greaterMaxKey = entry.getKey();
             }
         }
-        ArrayList<String> top10 = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            top10.add(tops.get(i));
+        greaterMaxArr[0] = greaterMaxKey;
+        greaterMaxArr[1] = Integer.toString(greaterMax);
+        return greaterMaxArr;
+    }
+
+    public ArrayList<String > top10(HashMap<String, Integer> wordsNum) {
+        ArrayList<String> tops = new ArrayList<>();
+        tops.add(maxOfArray(wordsNum)[0]);
+        int max = Integer.parseInt(maxOfArray(wordsNum)[1]);
+        for (int i = 0; i < 9; i++) {
+            tops.add(maxOfArrayGreaterThan(wordsNum, max)[0]);
+            max = Integer.parseInt(maxOfArrayGreaterThan(wordsNum, max)[1]);
         }
-        return top10;
+        return tops;
     }
 
     @Override
