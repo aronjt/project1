@@ -8,5 +8,6 @@ public class Main {
         Reader read = new Reader();
         Szemantika szem = new Szemantika(read.read("files/proba.txt"));
         System.out.println(szem);
+        System.out.println(szem.top10(szem.wordsNum()));
     }
 }
