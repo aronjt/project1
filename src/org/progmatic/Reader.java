@@ -9,12 +9,12 @@ import java.util.spi.AbstractResourceBundleProvider;
 
 public class Reader {
 
-    private static ArrayList<String> text = new ArrayList<>();
+    private  ArrayList<String> text = new ArrayList<>();
 
     public Reader() {
     }
 
-    public static ArrayList<String> read(String filePath) throws FileNotFoundException {
+    public ArrayList<String> read(String filePath) throws FileNotFoundException {
         Scanner sc = new Scanner(new File(filePath));
         while (sc.hasNext()) {
             String word = sc.next();
@@ -30,4 +30,5 @@ public class Reader {
         }
         return text;
     }
+
 }
