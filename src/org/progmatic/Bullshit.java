@@ -29,13 +29,14 @@ public class Bullshit {
         szemantika.top10(szemantika.wordsNum());
         StringBuilder bullShit = new StringBuilder();
         for (int i = 0; i < textLenght; i++) {
-            if ((int) (Math.random() * 2)+1 == 1) {
+            if ((int) (Math.random() * 2) + 1 == 1) {
                 int random = (int) (Math.random() * text.size());
                 bullShit.append(' ');
                 bullShit.append(text.get(random));
-            }else
-            bullShit.append(' ');
-            bullShit.append(szemantika.top10(szemantika.wordsNum()).get((int) (Math.random() * 10)));
+            } else {
+                bullShit.append(' ');
+                bullShit.append(szemantika.top10(szemantika.wordsNum()).get((int) (Math.random() * 10)));
+            }
 
 
         }
