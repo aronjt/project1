@@ -9,7 +9,7 @@ public class Szemantika {
     private static ArrayList<String> text = new ArrayList<>();
 
     public static void main(String[] args) throws FileNotFoundException {
-        text = Reader.read();
+        text = Reader.read("files/proba.txt");
 
         System.out.println(text);
     }

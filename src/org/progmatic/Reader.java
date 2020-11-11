@@ -14,8 +14,8 @@ public class Reader {
     public Reader() {
     }
 
-    public static ArrayList<String> read() throws FileNotFoundException {
-        Scanner sc = new Scanner(new File("files/proba.txt"));
+    public static ArrayList<String> read(String filePath) throws FileNotFoundException {
+        Scanner sc = new Scanner(new File(filePath));
         while (sc.hasNext()) {
             String word = sc.next();
             char[] wordArray = word.toCharArray();
@@ -28,7 +28,6 @@ public class Reader {
                     text.add(word);
             }
         }
-
         return text;
     }
 }
