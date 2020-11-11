@@ -9,8 +9,8 @@ public class Main {
         Szemantika szem = new Szemantika(read.read("files/proba.txt"));
         System.out.println(szem);
         System.out.println("Valami");
-        Bullshit bullshit=new Bullshit(read.read("files/proba.txt"));
+        Bullshit bullshit = new Bullshit(read.read("files/proba.txt"));
         bullshit.generateBullShitRandomOrderFromText(10);
-        
+        bullshit.generateBullShitWithTopWords(10); //Ebben benne van a top10 szavunk is
     }
 }
