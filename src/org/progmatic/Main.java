@@ -10,6 +10,6 @@ public class Main {
         Szemantika szem = new Szemantika(read.read("files/proba.txt"));
         System.out.println(szem);
         System.out.println("BullShit: ");
-        bullshit.generateBullShitRandomOrderFromText(read.read("files/proba.txt"),10);
+        bullshit.generateBullShitRandomOrderFromText(10);
     }
 }

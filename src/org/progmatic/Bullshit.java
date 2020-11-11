@@ -9,7 +9,7 @@ public class Bullshit {
     public Bullshit(ArrayList<String> text) {
         this.text = text;
     }
-    public void generateBullShitRandomOrderFromText(ArrayList<String>text, int textLength){
+    public void generateBullShitRandomOrderFromText( int textLength){
         StringBuilder bullShit=new StringBuilder();
 
         for (int i = 0; i < textLength; i++) {
