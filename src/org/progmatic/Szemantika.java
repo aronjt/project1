@@ -6,12 +6,7 @@ import java.util.List;
 
 public class Szemantika {
 
-    private ArrayList<String> text = new ArrayList<>();
-
-    public static void main(String[] args) throws FileNotFoundException {
-
-
-    }
+    private final ArrayList<String> text;
 
     public Szemantika(ArrayList<String> text) {
         this.text = text;
