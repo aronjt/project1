@@ -66,8 +66,8 @@ public class Szemantika {
         return greaterMaxArr;
     }
 
-    public ArrayList<String > top10(HashMap<String, Integer> wordsNum) {
-        ArrayList<String> tops = new ArrayList<>();
+    public LinkedList<String > top10(HashMap<String, Integer> wordsNum) {
+        LinkedList<String> tops = new LinkedList<>();
         tops.add(maxOfArray(wordsNum)[0]);
         int max = Integer.parseInt(maxOfArray(wordsNum)[1]);
         for (int i = 0; i < 9; i++) {
