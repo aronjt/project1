@@ -24,8 +24,13 @@ public class Reader {
                 for (int i = 0; i < wordArray.length - 1; i++) {
                     newWord.append(wordArray[i]);
                 }
-            }else {
-                    text.add(word);
+            } else if (!Character.isLetter(wordArray[0])) {
+                StringBuilder newWord = new StringBuilder();
+                for (int i = 1; i < wordArray.length; i++) {
+                    newWord.append(wordArray[i]);
+                }
+            } else {
+                text.add(word);
             }
         }
         return text;

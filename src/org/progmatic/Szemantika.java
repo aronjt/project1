@@ -77,6 +77,65 @@ public class Szemantika {
         return tops;
     }
 
+    public LinkedList<String> top10WithOutCommon(HashMap<String, Integer> wordsNum) {
+        LinkedList<String> tops = new LinkedList<>();
+        String[] conjunctionArr = {"a", "az", "hogy", "s", "és", "egy", "pedig", "azt", "azért", "ha", "még", "vagy", "de", "e", "nem", "mint", "is", "csak", "mely", "meg", "mit", "el", "hát", "ki", "már", "mert", "hol", "mért", "én", "te", "ő", "mi", "ti", "ők", "hogyha", "mind", "minden", "miért", "lesz", "más"};
+        ArrayList<String> conjunction = new ArrayList<>(Arrays.asList(conjunctionArr));
+        int max = Integer.parseInt(maxOfArray(wordsNum)[1]);
+        while (tops.size() != 10) {
+            if (conjunction.contains(maxOfArrayGreaterThan(wordsNum, max)[0])) {
+                max = Integer.parseInt(maxOfArrayGreaterThan(wordsNum, max)[1]);
+            } else {
+                tops.add(maxOfArrayGreaterThan(wordsNum, max)[0]);
+                max = Integer.parseInt(maxOfArrayGreaterThan(wordsNum, max)[1]);
+            }
+        }
+        return tops;
+    }
+
+    public HashMap<String, Integer> bigCapital() {
+        ArrayList<String> firstCapital = new ArrayList<>();
+        for (String s : text) {
+            char[] wordArr = s.toCharArray();
+            if (Character.isUpperCase(wordArr[0])) {
+                firstCapital.add(s);
+            }
+        }
+        HashMap<String, Integer> wordsNum = new HashMap<>();
+        Iterator<String> s = firstCapital.iterator();
+        while (s.hasNext()) {
+            String word = s.next();
+            int sum = 0;
+            Iterator<String> s1 = firstCapital.iterator();
+            while (s1.hasNext()) {
+                String word1 = s1.next();
+                if (word.equals(word1)) {
+                    sum++;
+                    firstCapital.remove(s1);
+                }
+            }
+            wordsNum.putIfAbsent(word, sum);
+            firstCapital.remove(s);
+        }
+        return wordsNum;
+    }
+
+    public LinkedList<String> top10Name(HashMap<String, Integer> bigCapital) {
+        LinkedList<String> topNames = new LinkedList<>();
+        String[] conjunctionArr = {"A", "Az", "Hogy", "S", "És", "Egy", "Pedig", "Azt", "Azért", "Ha", "Még", "Vagy", "De", "E", "Nem", "Mint", "Is", "Csak", "Mely", "Meg", "Mit", "El", "Hát", "Ki", "Már", "Mert", "Hol", "Mért", "Én", "Te", "Ő", "Mi", "Ti", "Ők", "Hogyha", "Mind", "Minden", "Miért", "Lesz", "Más", "Ne", "AZ"};
+        ArrayList<String> conjunction = new ArrayList<>(Arrays.asList(conjunctionArr));
+        int max = Integer.parseInt(maxOfArray(bigCapital)[1]);
+        while (topNames.size() != 10) {
+            if (conjunction.contains(maxOfArrayGreaterThan(bigCapital, max)[0])) {
+                max = Integer.parseInt(maxOfArrayGreaterThan(bigCapital, max)[1]);
+            } else {
+                topNames.add(maxOfArrayGreaterThan(bigCapital, max)[0]);
+                max = Integer.parseInt(maxOfArrayGreaterThan(bigCapital, max)[1]);
+            }
+        }
+        return topNames;
+    }
+
     @Override
     public String toString() {
         return "Szemantika{" +
