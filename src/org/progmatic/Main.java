@@ -8,8 +8,8 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println("Üdvözöl a SzemShit");
         String answer;
-        int answerNumber = 0;
-        String filePath = null;
+        int answerNumber;
+        String filePath;
         Scanner sc = new Scanner(System.in);
         Reader reader = new Reader();
 
@@ -45,7 +45,7 @@ public class Main {
             filePath = "files/testamentum.txt";
         }
         do {
-            System.out.println("A program melyik részét szeretnéd használni?");
+            System.out.println("A program melyik részét szeretnéd használni?(bullshit/szemantika)");
             sc = new Scanner(System.in);
             answer = sc.nextLine().toLowerCase();
         } while (!answer.equals("bullshit") && !answer.equals("szemantika"));
@@ -61,9 +61,15 @@ public class Main {
                 sc = new Scanner(System.in);
                 answer = sc.nextLine().toLowerCase();
                 if (answer.equals("igen")) {
+                    char[] ansArr;
                     System.out.println("Hány szóból álljon?");
-                    sc = new Scanner(System.in);
-                    answerNumber = sc.nextInt();
+                    do {
+                        System.out.println("Írj be egy számot");
+                        sc = new Scanner(System.in);
+                        answer = sc.nextLine();
+                        ansArr = answer.toCharArray();
+                    } while (!Character.isDigit(ansArr[0]));
+                    answerNumber = Integer.parseInt(answer);
                     bullshit.generateBullShitRandomOrderFromText(answerNumber);
                 } else {
                     bullshit.generateBullShitRandomOrderFromText((int) (Math.random() * 50 + 1));
@@ -81,7 +87,25 @@ public class Main {
                     bullshit.generateBullShitWithTopWords((int) (Math.random() * 50 + 1));
                 }
             }
+        } else {
+            Szemantika szemantika = new Szemantika(reader.read(filePath));
+            do {
+                System.out.println("Milyen szemantikai elemzést szeretnél? (top10/ top10szoveg/ topnev)");
+                sc = new Scanner(System.in);
+                answer = sc.nextLine().toLowerCase();
+            } while (!answer.equals("top10") && !answer.equals("top10szoveg") && !answer.equals("topnev"));
+            if (answer.equals("top10")) {
+                System.out.println("Top 10 szó a szövegből:");
+                System.out.println(szemantika.top10(szemantika.wordsNum()));
+            } else if (answer.equals("top10szoveg")) {
+                System.out.println("Top 10 szó ami a szövegre jellemző");
+                System.out.println(szemantika.top10WithOutCommon(szemantika.wordsNum()));
+            } else {
+                System.out.println("Legtöbbször előfurduló nevek:");
+                System.out.println(szemantika.top10Name(szemantika.bigCapital()));
+            }
         }
-
+        System.out.println("------------------------------------------------");
+        System.out.println("Ennyi volt a program, köszönöm, hogy használtál!");
     }
 }
