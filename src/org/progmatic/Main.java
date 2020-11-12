@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         Reader read = new Reader();
-        Szemantika szem = new Szemantika(read.read("files/ember.txt"));
+        Szemantika szem = new Szemantika(read.read("files/testamentum.txt"));
         System.out.println(szem);
         System.out.println("Top 10");
         System.out.println(szem.top10(szem.wordsNum()));

@@ -79,7 +79,7 @@ public class Szemantika {
 
     public LinkedList<String> top10WithOutCommon(HashMap<String, Integer> wordsNum) {
         LinkedList<String> tops = new LinkedList<>();
-        String[] conjunctionArr = {"a", "az", "hogy", "s", "és", "egy", "pedig", "azt", "azért", "ha", "még", "vagy", "de", "e", "nem", "mint", "is", "csak", "mely", "meg", "mit", "el", "hát", "ki", "már", "mert", "hol", "mért", "én", "te", "ő", "mi", "ti", "ők", "hogyha", "mind", "minden", "miért", "lesz", "más"};
+        String[] conjunctionArr = {"a", "az", "aki", "amit", "amely", "így", "ez", "sem", "van", "volt", "ott", "itt", "ezt", "azt", "volt", "ezek", "amikor", "ahogy", "most", "akkor", "ekkor", "hogy", "s", "és", "egy", "pedig", "azt", "azért", "ha", "még", "vagy", "de", "e", "nem", "mint", "is", "csak", "mely", "meg", "mit", "el", "hát", "ki", "már", "mert", "hol", "mért", "én", "te", "ő", "mi", "ti", "ők", "hogyha", "mind", "minden", "miért", "lesz", "más"};
         ArrayList<String> conjunction = new ArrayList<>(Arrays.asList(conjunctionArr));
         int max = Integer.parseInt(maxOfArray(wordsNum)[1]);
         while (tops.size() != 10) {
@@ -122,7 +122,7 @@ public class Szemantika {
 
     public LinkedList<String> top10Name(HashMap<String, Integer> bigCapital) {
         LinkedList<String> topNames = new LinkedList<>();
-        String[] conjunctionArr = {"A", "Az", "Hogy", "S", "És", "Egy", "Pedig", "Azt", "Azért", "Ha", "Még", "Vagy", "De", "E", "Nem", "Mint", "Is", "Csak", "Mely", "Meg", "Mit", "El", "Hát", "Ki", "Már", "Mert", "Hol", "Mért", "Én", "Te", "Ő", "Mi", "Ti", "Ők", "Hogyha", "Mind", "Minden", "Miért", "Lesz", "Más", "Ne", "AZ"};
+        String[] conjunctionArr = {"A", "Az", "Nagyon", "Pár", "Ez", "Ahogy", "Amikor", "Ennek", "Annak", "Ezek", "Azok", "Hogy", "S", "És", "Egy", "Pedig", "Azt", "Azért", "Ha", "Még", "Vagy", "De", "E", "Nem", "Mint", "Is", "Csak", "Mely", "Meg", "Mit", "Én-je", "El", "Hát", "Ki", "Már", "Mert", "Hol", "Mért", "Én", "Te", "Ő", "Mi", "Ti", "Ők", "Hogyha", "Mind", "Minden", "Miért", "Lesz", "Más", "Ne", "AZ", "IE", "AE"};
         ArrayList<String> conjunction = new ArrayList<>(Arrays.asList(conjunctionArr));
         int max = Integer.parseInt(maxOfArray(bigCapital)[1]);
         while (topNames.size() != 10) {
