@@ -70,8 +70,10 @@ public class Main {
                         ansArr = answer.toCharArray();
                     } while (!Character.isDigit(ansArr[0]));
                     answerNumber = Integer.parseInt(answer);
+                    System.out.println("A mondatod:");
                     bullshit.generateBullShitRandomOrderFromText(answerNumber);
                 } else {
+                    System.out.println("A mondatod:");
                     bullshit.generateBullShitRandomOrderFromText((int) (Math.random() * 50 + 1));
                 }
             } else {
@@ -89,7 +91,7 @@ public class Main {
                         ansArr = answer.toCharArray();
                     } while (!Character.isDigit(ansArr[0]));
                     answerNumber = Integer.parseInt(answer);
-                    System.out.println("Mondatod:");
+                    System.out.println("A mondatod:");
                     bullshit.generateBullShitWithTopWords(answerNumber);
                 } else {
                     System.out.println("A mondatod:");
