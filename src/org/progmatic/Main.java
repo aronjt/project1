@@ -78,12 +78,21 @@ public class Main {
                 System.out.println("Megakarod adni a hosszúságát?(Igen/Nem)");
                 sc = new Scanner(System.in);
                 answer = sc.nextLine().toLowerCase();
+
                 if (answer.equals("igen")) {
                     System.out.println("Hány szóból álljon?");
-                    sc = new Scanner(System.in);
-                    answerNumber = sc.nextInt();
+                    char[] ansArr;
+                    do {
+                        System.out.println("Írj be egy számot");
+                        sc = new Scanner(System.in);
+                        answer = sc.nextLine();
+                        ansArr = answer.toCharArray();
+                    } while (!Character.isDigit(ansArr[0]));
+                    answerNumber = Integer.parseInt(answer);
+                    System.out.println("Mondatod:");
                     bullshit.generateBullShitWithTopWords(answerNumber);
                 } else {
+                    System.out.println("A mondatod:");
                     bullshit.generateBullShitWithTopWords((int) (Math.random() * 50 + 1));
                 }
             }
