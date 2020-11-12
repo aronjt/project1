@@ -42,8 +42,4 @@ public class Bullshit {
         }
         System.out.println(bullShit.toString());
     }
-
-    public void generateBullShitWithTopTwoWordPairs(Map<String, Integer> map, int textLenght) {
-
-    }
 }
